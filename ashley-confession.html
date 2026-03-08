@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Open YouTube</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<script>
+(function () {
+
+  // 🔴 CHANGE THIS TO YOUR VIDEO OR CHANNEL
+  const youtubeWeb = "https://www.youtube.com/watch?v=V7zxJtQWOW0";
+  const youtubeApp = "vnd.youtube://www.youtube.com/watch?v=V7zxJtQWOW0";
+
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    // Try opening the app
+    window.location = youtubeApp;
+
+    // Fallback to web if app not installed
+    setTimeout(() => {
+      window.location = youtubeWeb;
+    }, 1200);
+  } else {
+    // Desktop → Web
+    window.location = youtubeWeb;
+  }
+
+})();
+</script>
+
+</body>
+</html>
